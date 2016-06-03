@@ -3,6 +3,7 @@ package projektarbeit.client.simonsays;
 import projektarbeit.client.MessageHandler;
 import projektarbeit.client.model.Intent;
 
+import java.io.IOException;
 import java.util.List;
 
 public class SimonSaysMessageHandler extends MessageHandler {
@@ -28,10 +29,17 @@ public class SimonSaysMessageHandler extends MessageHandler {
 
         switch (intentName) {
             case "SimonSays":
-                answer= intent.getSlot("SimonSaysText").getValue();
+                answer = "Simon says: " + intent.getSlot("SimonSaysText").getValue();
                 break;
             default:
                 break;
+        }
+
+        try {
+            Process p = new ProcessBuilder("cmd.exe", "/c", "start", "cmd.exe", "/k", "echo", answer).start();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return answer;

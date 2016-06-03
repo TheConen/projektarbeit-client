@@ -5,7 +5,6 @@ import projektarbeit.client.model.Slot;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public abstract class MessageHandler {
 
