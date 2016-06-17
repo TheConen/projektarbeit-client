@@ -15,12 +15,15 @@ public class ProjektarbeitClientApplication {
 
     static private Websocket simonSaysWebsocket;
     static final private String SIMONSAYSURI = "ws://projektarbeit.jconen.de/simonsaysws";
+    
+    static private Websocket callForHelpWebsocket;
+    static final private String CALLFORHELPURI = "ws://projektarbeit.jconen.de/callforhelpws";
 
     public static void main(String[] args) {
 		SpringApplication.run(ProjektarbeitClientApplication.class, args);
 
         simonSaysWebsocket = initializeWebsocket(SIMONSAYSURI);
-
+        callForHelpWebsocket = initializeWebsocket(CALLFORHELPURI);
     }
 
     private static Websocket initializeWebsocket(String uriString) {
