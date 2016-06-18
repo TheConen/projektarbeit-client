@@ -1,0 +1,13 @@
+{
+  "intents": [
+    {
+      "intent": "SimonSays",
+      "slots": [
+        {
+          "name": "SimonSaysText",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    }
+  ]
+}
