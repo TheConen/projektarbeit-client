@@ -4,6 +4,7 @@ import java.util.List;
 
 import projektarbeit.client.MessageHandler;
 import projektarbeit.client.model.Intent;
+import projektarbeit.client.model.Slot;
 
 public class CallForHelpMessageHandler extends MessageHandler {
 
@@ -28,15 +29,47 @@ public class CallForHelpMessageHandler extends MessageHandler {
     protected String onIntent(Intent intent) {
         String intentName = intent.getName();
         String answer = null;
+        MailSender mail = null;
 
         switch (intentName) {
             case "CallForHelp":
                 answer = "I sent out a distress call to your standard emergency contact.";
-                MailSender mail = new MailSender();
+                mail = new MailSender();
                 mail.send();
                 break;
             case "CallPersonForHelp":
-                answer = "This function is not implemented yet";
+                Slot slot = intent.getSlot("Person");
+                String person = slot.getValue().toLowerCase();
+                String recipient = null;
+                answer = "I sent out a distress call to " + person;
+                switch (person) {
+                    case "johannes":
+                        recipient = "johannesconen@gmail.com";
+                        break;
+                    case "daniel":
+                        recipient = "d-rothmann@web.de";
+                        break;
+                    case "dirk":
+                        recipient = "dirk.hoffmann@hs-karlsruhe.de";
+                        break;
+                    case "isabel":
+                        recipient = "i.dorner@enbw.com";
+                        break;
+                    case "thomas":
+                        recipient = "thomas.fuchss@hs-karlsruhe.de";
+                        break;
+                    case "carsten":
+                        recipient = "c.stauch@enbw.com";
+                        break;
+                    default:
+                        recipient = "johannesconen@gmail.com";
+                        answer = "I sent out a distress call to your standard emergency contact.";
+                        break;
+                }
+
+                recipient = "johannesconen@gmail.com";
+                mail = new MailSender(recipient);
+                mail.send();
                 break;
             default:
                 break;
