@@ -53,6 +53,7 @@ public class Websocket {
                 break;
             case "CallForHelp":
             	answer = new CallForHelpMessageHandler(messageParts).handleMessage();
+                break;
             default:
                 answer = "Unknown skill";
                 break;
@@ -66,6 +67,7 @@ public class Websocket {
     @OnError
     public void onError(Throwable thr) {
         log("Error: " + thr.getMessage());
+        thr.printStackTrace();
     }
 
     public void sendMessage(String message) {
