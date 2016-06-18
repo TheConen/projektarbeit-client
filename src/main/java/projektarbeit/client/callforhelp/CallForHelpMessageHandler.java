@@ -67,7 +67,6 @@ public class CallForHelpMessageHandler extends MessageHandler {
                         break;
                 }
 
-                recipient = "johannesconen@gmail.com";
                 mail = new MailSender(recipient);
                 mail.send();
                 break;
