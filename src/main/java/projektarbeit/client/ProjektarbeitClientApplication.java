@@ -19,11 +19,15 @@ public class ProjektarbeitClientApplication {
     static private Websocket callForHelpWebsocket;
     static final private String CALLFORHELPURI = "ws://projektarbeit.jconen.de/callforhelpws";
 
+    static private Websocket bigBrotherWebsocket;
+    static final private String BIGBROTHERURI = "ws://projektarbeit.jconen.de/bigbrotherws";
+
     public static void main(String[] args) {
 		SpringApplication.run(ProjektarbeitClientApplication.class, args);
 
         simonSaysWebsocket = initializeWebsocket(SIMONSAYSURI);
         callForHelpWebsocket = initializeWebsocket(CALLFORHELPURI);
+        bigBrotherWebsocket = initializeWebsocket(BIGBROTHERURI);
     }
 
     private static Websocket initializeWebsocket(String uriString) {

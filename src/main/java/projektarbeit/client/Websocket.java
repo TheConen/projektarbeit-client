@@ -1,5 +1,6 @@
 package projektarbeit.client;
 
+import projektarbeit.client.bigbrother.BigBrotherMessageHandler;
 import projektarbeit.client.callforhelp.CallForHelpMessageHandler;
 import projektarbeit.client.simonsays.SimonSaysMessageHandler;
 
@@ -53,6 +54,9 @@ public class Websocket {
                 break;
             case "CallForHelp":
             	answer = new CallForHelpMessageHandler(messageParts).handleMessage();
+                break;
+            case "BigBrother":
+                answer = new BigBrotherMessageHandler(messageParts).handleMessage();
                 break;
             default:
                 answer = "Unknown skill";
