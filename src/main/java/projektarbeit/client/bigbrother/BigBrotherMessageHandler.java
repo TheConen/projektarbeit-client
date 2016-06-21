@@ -55,7 +55,7 @@ public class BigBrotherMessageHandler extends MessageHandler {
                 p = new ProcessBuilder("C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe", address, "-f").start();
                 answer = "I opened Big Brother on your computer";
             } catch (IOException e) {
-                answer = "An error occured opening Big Brother";
+                answer = "An error occured opening Big Brother on your computer";
                 e.printStackTrace();
             }
         } else {
