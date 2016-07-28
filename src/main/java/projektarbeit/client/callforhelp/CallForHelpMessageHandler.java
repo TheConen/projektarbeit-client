@@ -66,7 +66,6 @@ public class CallForHelpMessageHandler extends MessageHandler {
                         answer = "I sent out a distress call to your standard emergency contact.";
                         break;
                 }
-
                 mail = new MailSender(recipient);
                 mail.send();
                 break;
